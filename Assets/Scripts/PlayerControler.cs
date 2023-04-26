@@ -30,11 +30,20 @@ public class PlayerControler : MonoBehaviour
 
     void GestionarOrientacion(float inputMovimiento)
     {
-        if( (mirandoDerecha = true && inputMovimiento < 0) || (mirandoDerecha = false && inputMovimiento > 0) )
+        /*if( (mirandoDerecha = true && inputMovimiento < 0) || (mirandoDerecha = false && inputMovimiento > 0) )
         {
             // Ejecutar codigo de volteado
             mirandoDerecha = !mirandoDerecha;
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }*/
+
+        if(inputMovimiento < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(inputMovimiento > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

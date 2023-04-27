@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     public float velocidad;
+    public float fuerzaSalto;
     private Rigidbody2D rigidBody;
     private bool mirandoDerecha = true;
 
@@ -17,6 +18,15 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         ProcesarMovimiento();
+        ProcesarSalto();
+    }
+
+    void ProcesarSalto()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+        }
     }
 
     void ProcesarMovimiento()
